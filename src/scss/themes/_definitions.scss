@@ -1,0 +1,28 @@
+@use '../vendors/fonts' as *;
+
+$themes: (
+  pixel: (
+    backgroundColor: #f7f7f7,
+    mainTextColor: #ea4f36,
+    mainTextColorBrigth: #fb6b1d,
+    secondTextColor: #585858,
+    ligthTextColor: white,
+    darkTextColor: #2e222f,
+    ligthBackgroundColor: #ececec,
+    darkBackgroundColor: #2e222f,
+    mainFont: 'Lunch',
+    secondFont: 'Secret Mana',
+  ),
+  normal: (
+    backgroundColor: #f7f7f7,
+    mainTextColor: #ec5242,
+    mainTextColorBrigth: #fb6b1d,
+    secondTextColor: #585858,
+    ligthTextColor: white,
+    darkTextColor: #2e222f,
+    ligthBackgroundColor: #ececec,
+    darkBackgroundColor: #272a31,
+    mainFont: 'Goose',
+    secondFont: 'Lato',
+  ),
+);

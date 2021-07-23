@@ -1,0 +1,112 @@
+@mixin hoverAnimation($hoverColor) {
+  color: $hoverColor;
+  border: 1px solid $hoverColor;
+  box-sizing: border-box;
+  background-color: #fff5e1;
+}
+
+@mixin slideAnimation($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      transform: translate3d($from, 0, 0);
+      opacity: 0;
+    }
+
+    100% {
+      transform: translate3d($to, 0, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin colorChangeAnimation($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      color: $from;
+    }
+
+    100% {
+      color: $to;
+    }
+  }
+}
+
+@mixin scaleChangeAnimation($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      transform: scale($from);
+    }
+
+    100% {
+      transform: scale($to);
+    }
+  }
+}
+
+@mixin scaleTextUpAnimation($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      font-size: $from;
+    }
+
+    100% {
+      font-size: $to;
+    }
+  }
+}
+
+@mixin growDownAnimation {
+  @keyframes growDown {
+    0% {
+      transform: scaleY(0);
+    }
+
+    80% {
+      transform: scaleY(0.8);
+    }
+
+    100% {
+      transform: scaleY(1);
+    }
+  }
+}
+
+@mixin rotateAnimation($name, $from, $to) {
+  @keyframes #{$name} {
+    0% {
+      rotate: $from;
+    }
+
+    100% {
+      rotate: $to;
+    }
+  }
+}
+
+@mixin spriteAnimation($name, $x1Pos, $y1Pos, $x2Pos, $y2Pos) {
+  @keyframes #{$name} {
+    0% {
+      background-position: $x1Pos $y1Pos;
+    }
+
+    100% {
+      background-position: $x2Pos $y2Pos;
+    }
+  }
+}
+
+@mixin spriteSheetElement($xPos, $yPos) {
+  background-position: $xPos $yPos;
+}
+
+@mixin randomColorRotation($name) {
+  @keyframes #{$name} {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+}

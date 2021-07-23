@@ -1,0 +1,29 @@
+@mixin imageBorder($slice: 8, $size: 16px, $path) {
+  border: solid transparent;
+  border-image: url($path);
+  border-image-slice: $slice;
+  border-image-width: $size $size;
+}
+
+@mixin flexCenter($direction:column) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin desktopResolution {
+  @media only screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin customButtonIcon($path, $sizeX, $sizeY) {
+  background-image: url($path);
+  vertical-align: bottom;
+  display: inline-block;
+  width: $sizeX;
+  height: $sizeY;
+  background-repeat: no-repeat;
+  margin-left: 10px;
+}
