@@ -5,9 +5,14 @@
   @include setFontAttributes;
 
   margin: 1em;
+  align-items: flex-start;
+  align-self: baseline;
 
   form {
     @include flexCenter;
+
+    width: 100%;
+    align-items: stretch;
 
     input {
       margin: 1em 0;

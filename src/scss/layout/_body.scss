@@ -1,6 +1,7 @@
 @use '../utils/' as *;
+@use '../vendors/include-media' as *;
 
 body {
   @include setFontAttributes;
-  @include setColors(get-color(light1), get-color(dark1));
+  @include setColors(get-color(light2), get-color(dark2));
 }

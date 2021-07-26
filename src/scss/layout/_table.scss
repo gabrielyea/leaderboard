@@ -14,12 +14,12 @@ table {
 
 td,
 th {
-  border: 1px solid transparent;
+  border: 1px solid black;
   text-align: left;
   padding: 1em;
   width: 8em;
 }
 
 tr:nth-child(even) {
-  @include setColors(get-color(light2), get-color(dark2));
+  @include setColors(get-color(light1), get-color(dark1));
 }
