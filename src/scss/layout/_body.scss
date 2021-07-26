@@ -4,4 +4,6 @@
 body {
   @include setFontAttributes;
   @include setColors(get-color(light2), get-color(dark2));
+
+  padding: 0 5em;
 }
