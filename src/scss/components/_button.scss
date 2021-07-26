@@ -1,0 +1,5 @@
+@use '../utils/' as *;
+
+button {
+  @include setColors(get-color(light1), get-color(dark1));
+}

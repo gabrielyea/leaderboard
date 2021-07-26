@@ -1,0 +1,25 @@
+@use '../utils/' as *;
+
+table {
+  @include flexCenter;
+  $color: get-color(light1);
+
+  margin-top: 2em;
+  justify-content: flex-start;
+  border-collapse: collapse;
+  height: 300px;
+  border: 1px solid $color;
+  border-radius: 8px;
+}
+
+td,
+th {
+  border: 1px solid transparent;
+  text-align: left;
+  padding: 1em;
+  width: 8em;
+}
+
+tr:nth-child(even) {
+  @include setColors(get-color(light2), get-color(dark2));
+}

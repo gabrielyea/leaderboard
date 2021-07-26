@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 @mixin imageBorder($slice: 8, $size: 16px, $path) {
   border: solid transparent;
   border-image: url($path);
@@ -26,4 +28,16 @@
   height: $sizeY;
   background-repeat: no-repeat;
   margin-left: 10px;
+}
+
+@mixin setFontAttributes($size: 1em, $weight: normal, $style: normal) {
+  font-family: $main-font;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+}
+
+@mixin setColors($frontColor, $backColor) {
+  color: $frontColor;
+  background-color: $backColor;
 }

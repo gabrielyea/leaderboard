@@ -1,0 +1,21 @@
+@use '../utils/' as *;
+
+.add-score {
+  @include flexCenter;
+  @include setFontAttributes;
+
+  margin: 1em;
+
+  form {
+    @include flexCenter;
+
+    input {
+      margin: 1em 0;
+      padding: 1em;
+    }
+
+    .submit-btn {
+      align-self: flex-end;
+    }
+  }
+}

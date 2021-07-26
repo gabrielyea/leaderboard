@@ -1,4 +1,8 @@
-h1 {
-  color: purple;
-  font-size: 8em;
+@use '../utils/' as *;
+
+header {
+  @include setFontAttributes();
+  @include flexCenter;
+
+  margin-top: 4em;
 }

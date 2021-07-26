@@ -1,0 +1,13 @@
+@use '../utils/' as *;
+
+.recent-scores {
+  @include flexCenter;
+
+  margin: 1em;
+
+  .recent-scores-top {
+    @include flexCenter(row);
+
+    gap: 1em;
+  }
+}
