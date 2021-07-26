@@ -9,8 +9,9 @@ $main-font: 'Secret Mana';
 $main-theme-color: #ea4f36;
 $dark-background-color: #303030;
 
-$theme-colors: (light1:#94e344 , light2:#e2f3e4, dark1:#332c50 , dark2:#46878f );
+// $theme-colors: (light1:#94e344 , light2:#e2f3e4, dark1:#332c50 , dark2:#46878f );
+$theme-colors: (light1:white , light2:#e2f3e4, dark1:black , dark2:#46878f );
 
-@function get-color($themeName) {
+@function getcolor($themeName) {
   @return map.get($theme-colors, $themeName);
 }
