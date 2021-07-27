@@ -1,8 +1,19 @@
 @use '../utils/' as *;
+@use '../vendors/include-media' as *;
 
 header {
-  @include setFontAttributes();
+  @include setFontAttributes(2em);
   @include flexCenter;
 
   margin-top: 4em;
+
+  @include media(">tablet") {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    h1 {
+      grid-column: 1 / span 2;
+      margin: 1em 0;
+    }
+  }
 }
