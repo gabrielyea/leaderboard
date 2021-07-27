@@ -1,11 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wbpack Exercise</title>
+    <title>Leaderboard - Gabriel Rendon</title>
 <script defer src="index.bundle.js"></script></head>
+
 <body>
-    <h1>Hello webpack!</h1>
+    <header>
+        <h1 class="">
+            Leaderboard
+        </h1>
+        <section class="recent-scores">
+            <div class="recent-scores-top">
+                <h2>Recent scores</h2>
+                <button class="refresh-btn">Refresh</button>
+            </div>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </table>
+        </section>
+
+        <section class="add-score">
+            <h2>Add your score</h2>
+            <form action="#">
+                <input class="player-name" type="text" required>
+                <input class="player-score" type="number" required>
+                <input class="submit-btn" type="submit" value="Submit your score">
+            </form>
+        </section>
+
+    </header>
 </body>
+
 </html>
