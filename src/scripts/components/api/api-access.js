@@ -15,7 +15,6 @@ export default class ApiAccess {
   }
 
   postScoreToApi = async ({ user, score }) => {
-    console.log({user, score})
     const response = await fetch(getScoreDirection(), {
       method: 'POST',
       body: JSON.stringify({
@@ -36,6 +35,5 @@ export default class ApiAccess {
 
   setNewDirection = (id) => {
     setNewDirection(`${API_POST}/${id}/scores/`);
-    console.log(getScoreDirection());
   }
 }
