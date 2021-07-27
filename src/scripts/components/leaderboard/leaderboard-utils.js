@@ -10,6 +10,7 @@ export default class LeaderboardUtils {
   }
 
   getScore = () => {
+    leaderboardInterface.clearTable();
     this.getApiAccess().getScoresFromApi()
       .then((list) => {
         const sortedList = this.myListFunctions().mySort(list.result);
@@ -23,6 +24,7 @@ export default class LeaderboardUtils {
 
   onSuccessSubmit = () => {
     leaderboardInterface.toggleDisabled('Submit your score');
+    leaderboardInterface.cleanInputs();
     this.getScore();
   }
 }

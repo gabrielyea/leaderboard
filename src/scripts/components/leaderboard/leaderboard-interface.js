@@ -50,6 +50,13 @@ class LeaderboardInterface {
     this.submitBtn.value = message;
     this.submitBtn.disabled = !this.submitBtn.disabled;
   }
+
+  cleanInputs = () => {
+    const name = this.form.querySelector('.player-name');
+    const score = this.form.querySelector('.player-score');
+    name.value = '';
+    score.value = '';
+  }
 }
 
 const leaderboardInterface = new LeaderboardInterface();

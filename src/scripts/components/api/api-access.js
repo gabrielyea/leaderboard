@@ -1,4 +1,4 @@
-import { API_POST, setNewDirection, getScoreDirection } from './api-routes.js';
+import { API_POST, setRoute, getScoreDirection } from './api-routes.js';
 
 export default class ApiAccess {
   postGameToApi = async () => {
@@ -34,6 +34,6 @@ export default class ApiAccess {
   }
 
   setNewDirection = (id) => {
-    setNewDirection(`${API_POST}/${id}/scores/`);
+    setRoute(`${API_POST}/${id}/scores/`);
   }
 }

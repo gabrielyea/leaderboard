@@ -11,12 +11,15 @@ const registerActions = () => {
 };
 
 const setNewGame = () => {
+  const useSetRoute = true;
   const getId = (str) => (str.split(' ')[3]);
 
-  apiCalls.postGameToApi().then((game) => {
-    const id = getId(game.result);
-    apiCalls.setNewDirection(id);
-  });
+  if (!useSetRoute) {
+    apiCalls.postGameToApi().then((game) => {
+      const id = getId(game.result);
+      apiCalls.setNewDirection(id);
+    });
+  }
 };
 
 const setUp = () => {
