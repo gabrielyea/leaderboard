@@ -15,7 +15,7 @@ class LeaderboardInterface {
       );
     });
 
-    this.refresh.addEventListener('click', (e) => {
+    this.refresh.addEventListener('click', () => {
       leaderboardActions.onRefreshRequested.doActions({});
     });
   }

@@ -1,14 +1,13 @@
 import LocalStorage from '../utils/localStorage.js';
-import ApiAccess from '../api/api-access.js';
 import leaderboardActions from './leaderboard-actions.js';
+import LeaderboardUtils from './leaderboard-utils.js';
 
-const apiCalls = new ApiAccess();
 const storage = new LocalStorage();
+const utils = new LeaderboardUtils();
 
 const registerActions = () => {
-  leaderboardActions.onScoreSubmited.addActions(
-    apiCalls.postScoreToApi,
-  );
+  leaderboardActions.onScoreSubmited.addActions(utils.setScore);
+  leaderboardActions.onRefreshRequested.addActions(utils.getScore);
 };
 
 const setUp = () => {
@@ -16,7 +15,7 @@ const setUp = () => {
 
   registerActions();
   if (storage.isEmpty()) {
-    apiCalls.postGameToApi().then((game) => storage.saveData({ data: getId(game.result) }));
+    //apiCalls.postGameToApi().then((game) => storage.saveData({ data: getId(game.result) }));
   }
 };
 
