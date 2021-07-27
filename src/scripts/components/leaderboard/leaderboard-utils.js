@@ -1,4 +1,5 @@
-import ApiAccess from "../api/api-access";
+import leaderboardInterface from './leaderboard-interface';
+import ApiAccess from '../api/api-access';
 
 export default class LeaderboardUtils {
   setScore = ({ user, score }) => {
@@ -6,12 +7,11 @@ export default class LeaderboardUtils {
   }
 
   getScore = () => {
-    this.getApiAccess().getScoresFromApi().then((list) => this.success(list));
+    this.getApiAccess().getScoresFromApi()
+      .then((list) => leaderboardInterface.setLeaderboardDisplay(list.result));
   }
 
-  getApiAccess = () => {
-    return new ApiAccess();
-  }
+  getApiAccess = () => new ApiAccess();
 
   success = (res) => {
     console.log('should refresh the leaderboard with', res.result);
