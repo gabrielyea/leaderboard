@@ -1,4 +1,4 @@
-export default class List {
+export default class MyList {
   addToList = ({ list, item }) => {
     list = list.concat(item);
     return list;
@@ -15,9 +15,9 @@ export default class List {
     return list;
   }
 
-  sortList = (list) => {
+  mySort = (list) => {
     const byScore = (a, b) => {
-      if (a.index > b.index) {
+      if (a.score > b.score) {
         return 1;
       }
       return -1;

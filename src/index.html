@@ -9,7 +9,9 @@
 
 <body>
     <header>
-        <h1 class="">Leaderboard</h1>
+        <h1 class="">
+            Leaderboard
+        </h1>
         <section class="recent-scores">
             <div class="recent-scores-top">
                 <h2>Recent scores</h2>
@@ -20,23 +22,18 @@
                     <th>Name</th>
                     <th>Score</th>
                 </tr>
-                <template>
-                    <tr>
-                        <td class="table-name">Jill</td>
-                        <td class="table-score">50</td>
-                    </tr>
-                </template>
             </table>
         </section>
 
         <section class="add-score">
             <h2>Add your score</h2>
             <form action="#">
-                <input class="player-name" type="text">
-                <input class="player-score" type="text">
-                <input class="submit-btn" type="submit">
+                <input class="player-name" type="text" required>
+                <input class="player-score" type="number" required>
+                <input class="submit-btn" type="submit" value="Submit your score">
             </form>
         </section>
+
     </header>
 </body>
 

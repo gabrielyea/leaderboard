@@ -1,6 +1,4 @@
 import '../scss/main.scss';
-import set from './components/leaderboard/set-up.js';
-import leaderboardInterface from './components/leaderboard/leaderboard-interface.js';
+import setNewGame from './components/leaderboard/set-up.js';
 
-const test = leaderboardInterface;
-set();
+setNewGame();

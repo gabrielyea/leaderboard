@@ -1,13 +1,11 @@
+import { API_POST, setNewDirection, getScoreDirection } from './api-routes.js';
+
 export default class ApiAccess {
-  API_POST = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games';
-
-  API_SCORES = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/iBsrKgm7fJZAW7fOqiIR/scores/';
-
   postGameToApi = async () => {
-    const response = await fetch(this.API_POST, {
+    const response = await fetch(API_POST, {
       method: 'POST',
       body: JSON.stringify({
-        name: 'helo',
+        name: 'gabriels game',
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -17,11 +15,12 @@ export default class ApiAccess {
   }
 
   postScoreToApi = async ({ user, score }) => {
-    const response = await fetch(this.API_SCORES, {
+    console.log({user, score})
+    const response = await fetch(getScoreDirection(), {
       method: 'POST',
       body: JSON.stringify({
         user,
-        score,
+        score: parseInt(score, 10),
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -31,7 +30,12 @@ export default class ApiAccess {
   }
 
   getScoresFromApi = async () => {
-    const response = await fetch(this.API_SCORES);
+    const response = await fetch(getScoreDirection());
     return response.json();
+  }
+
+  setNewDirection = (id) => {
+    setNewDirection(`${API_POST}/${id}/scores/`);
+    console.log(getScoreDirection());
   }
 }
