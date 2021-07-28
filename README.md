@@ -22,7 +22,7 @@ You can see my page live here:
 To get a local copy running follow this steps!
 - Press the "Code" button and copy the link.
 - Clone it using git command `git clone <link>`.
-- Go to the directory `cd <repo-name>
+- Go to the directory `cd <repo-name>`
 - `npm install` to install the packages
 - `npm run start` to build dist files and run local server.
 
