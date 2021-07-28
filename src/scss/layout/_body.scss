@@ -3,7 +3,20 @@
 
 body {
   @include setFontAttributes;
-  @include setColors(get-color(light2), get-color(dark2));
+  @include setColors(get-color(light1), get-color(dark1));
 
   padding: 0 5em;
+  background-image: url('../assets/mobile-background.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@include media(">tablet") {
+  body {
+    background-image: url('../assets/mobile-background.png');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+  }
 }

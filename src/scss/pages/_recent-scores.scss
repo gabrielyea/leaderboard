@@ -1,4 +1,5 @@
-@use '../utils/' as *;
+@use '../utils/'as *;
+@use '../vendors/'as *;
 
 .recent-scores {
   @include flexCenter;
@@ -9,5 +10,26 @@
     @include flexCenter(row);
 
     gap: 1em;
+
+    .recent-scores-h2 {
+      @include setFontAttributes(1em);
+      $color: get-color(dark2);
+
+      text-shadow: 2px 2px $color;
+    }
+  }
+}
+
+@include media(">tablet") {
+  .recent-scores {
+    .recent-scores-top {
+      .recent-scores-h2 {
+        @include setFontAttributes(3em);
+        $color: get-color(dark2);
+
+        width: 350px;
+        text-shadow: 5px 5px $color;
+      }
+    }
   }
 }

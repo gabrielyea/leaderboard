@@ -1,9 +1,9 @@
 import leaderboardActions from './leaderboard-actions.js';
+import LeaderboardUtils from './leaderboard-utils.js';
 
+const utils = new LeaderboardUtils();
 class LeaderboardInterface {
   form = document.querySelector('form');
-
-  refresh = document.querySelector('.refresh-btn');
 
   tableEntry = document.querySelector('template');
 
@@ -11,22 +11,26 @@ class LeaderboardInterface {
 
   submitBtn = document.querySelector('.submit-btn');
 
+  refreshBtn = document.querySelector('.refresh-btn');
+
+  addScoreHeader = document.querySelector('.add-scores-h2')
+
+  recentScoreHeader = document.querySelector('.recent-scores-h2');
+
   constructor() {
     this.form.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.toggleDisabled('Sending...');
       const name = this.form.querySelector('.player-name');
       const score = this.form.querySelector('.player-score');
-      leaderboardActions.onScoreSubmited
-        .doActions({ param: { user: name.value, score: score.value } });
+      utils.setScores({ user: name.value, score: score.value });
     });
 
-    this.refresh.addEventListener('click', () => {
+    this.refreshBtn.addEventListener('click', () => {
       leaderboardActions.onRefreshRequested.doActions({});
     });
   }
 
-  setLeaderboardDisplay = (scores) => {
+  setScoresOnBoard = (scores) => {
     this.clearTable();
     scores.forEach((score) => {
       const row = this.scoreTable.insertRow(1);
@@ -35,7 +39,6 @@ class LeaderboardInterface {
   }
 
   createTableElement = ({ user, score, row }) => {
-    // const clone = this.tableEntry.content.firstElementChild.cloneNode(true);
     row.insertCell(0).innerText = user;
     row.insertCell(1).innerText = score;
   }
@@ -46,9 +49,10 @@ class LeaderboardInterface {
     }
   }
 
-  toggleDisabled = (message) => {
-    this.submitBtn.value = message;
-    this.submitBtn.disabled = !this.submitBtn.disabled;
+  toggleDisabled = (message, element) => {
+    element.value = message;
+    element.innerText = message;
+    element.disabled = !element.disabled;
   }
 
   cleanInputs = () => {
@@ -56,6 +60,10 @@ class LeaderboardInterface {
     const score = this.form.querySelector('.player-score');
     name.value = '';
     score.value = '';
+  }
+
+  toggleAnimation = (animationName, element) => {
+    element.classList.toggle(animationName);
   }
 }
 

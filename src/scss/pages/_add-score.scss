@@ -1,12 +1,17 @@
-@use '../utils/' as *;
+@use '../utils/'as *;
+@use '../vendors/'as *;
 
 .add-score {
   @include flexCenter;
   @include setFontAttributes;
 
+  h2 {
+    $color: get-color(dark2);
+
+    text-shadow: 5px 5px $color;
+  }
+
   margin: 1em;
-  align-items: flex-start;
-  align-self: baseline;
 
   form {
     @include flexCenter;
@@ -15,12 +20,67 @@
     align-items: stretch;
 
     input {
+      @include setColors(get-color(light2), get-color(dark2));
+      @include setFontAttributes;
+
+      $color: get-color(light1);
+
       margin: 1em 0;
       padding: 1em;
+      border: solid 2px $color;
+      border-radius: 4px;
+    }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
+    input::placeholder {
+      color: white;
     }
 
     .submit-btn {
       align-self: flex-end;
+    }
+  }
+}
+
+@include media(">tablet") {
+  .add-score {
+    align-self: baseline;
+
+    h2 {
+      @include setFontAttributes(3em);
+      $color: get-color(dark2);
+
+      text-shadow: 5px 5px $color;
+    }
+
+    margin: 1em;
+
+    form {
+      width: 100%;
+      align-items: stretch;
+
+      input {
+        @include setFontAttributes(2em);
+
+        $color: get-color(light1);
+
+        margin: 1em 0;
+        padding: 1em;
+        border: solid 4px $color;
+        border-radius: 8px;
+      }
+
+      .submit-btn {
+        align-self: flex-end;
+      }
     }
   }
 }

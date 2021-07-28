@@ -1,5 +1,27 @@
 @use '../utils/' as *;
+@use '../vendors/' as *;
 
-button {
-  @include setColors(get-color(light1), get-color(dark1));
+.my-btn {
+  @include setColors(get-color(light2), get-color(dark2));
+  @include setFontAttributes(1em);
+  $color: get-color(light1) solid;
+
+  padding: 0.5em;
+  border: $color;
+  border-radius: 4px;
+
+  &:hover {
+    animation: hue 1s infinite alternate, pulse 1s infinite alternate;
+  }
+
+  @include randomColorRotation(hue);
+  @include scaleChangeAnimation(pulse, 1, 1.2);
+}
+
+@include media(">tablet") {
+  .my-btn {
+    @include setFontAttributes(2em);
+
+    padding: 1em;
+  }
 }

@@ -55,8 +55,8 @@
   }
 }
 
-@mixin growDownAnimation {
-  @keyframes growDown {
+@mixin growDownAnimation($name) {
+  @keyframes #{$name} {
     0% {
       transform: scaleY(0);
     }
@@ -107,6 +107,18 @@
 
     100% {
       filter: hue-rotate(360deg);
+    }
+  }
+}
+
+@mixin loadingFill($name) {
+  @keyframes #{$name} {
+    50% {
+      background-size: 100% 100%;
+    }
+
+    100% {
+      background-size: 0 100%;
     }
   }
 }
