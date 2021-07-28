@@ -1,4 +1,4 @@
-@use '../utils/' as *;
+@use '../utils/'as *;
 
 .add-score {
   @include flexCenter;
@@ -27,6 +27,16 @@
       margin: 1em 0;
       padding: 1em;
     }
+
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+
 
     .submit-btn {
       align-self: flex-end;
