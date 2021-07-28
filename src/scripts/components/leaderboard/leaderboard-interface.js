@@ -13,6 +13,8 @@ class LeaderboardInterface {
 
   submitBtn = document.querySelector('.submit-btn');
 
+  addScoreHeader = document.querySelector('.add-scores-h2')
+
   constructor() {
     this.form.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -55,6 +57,10 @@ class LeaderboardInterface {
     const score = this.form.querySelector('.player-score');
     name.value = '';
     score.value = '';
+  }
+
+  toggleLoadingAnimation = (element) => {
+    element.classList.toggle('loading');
   }
 }
 

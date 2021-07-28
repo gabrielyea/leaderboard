@@ -1,0 +1,8 @@
+@use '../utils/' as *;
+
+.show {
+  transform-origin: top;
+  animation: godown 0.5s ease-in;
+
+  @include growDownAnimation(godown);
+}

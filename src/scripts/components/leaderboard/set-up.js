@@ -7,17 +7,21 @@ const utils = new LeaderboardUtils();
 const apiCalls = new ApiAccess();
 
 const registerActions = () => {
-  leaderboardActions.onScoreSubmited.addActions(() => display.toggleDisabled('Uploading...'));
+  leaderboardActions.onScoreSubmited.addActions(() => display.toggleDisabled('Uploading...'),
+    () => display.toggleLoadingAnimation(display.addScoreHeader));
 
   leaderboardActions.onScoreSucces.addActions(
     display.clearTable,
     display.cleanInputs,
     () => display.toggleDisabled('Submit your score'),
     () => utils.displayScore(display),
+    () => display.toggleLoadingAnimation(display.addScoreHeader),
   );
 
-  leaderboardActions.onRefreshRequested.addActions(display.clearTable,
-    () => utils.displayScore(display));
+  leaderboardActions.onRefreshRequested.addActions(
+    display.clearTable,
+    () => utils.displayScore(display),
+  );
 
   leaderboardActions.onRefreshSuccess.addActions();
 };
