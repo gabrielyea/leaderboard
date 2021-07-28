@@ -4,6 +4,12 @@
   @include flexCenter;
   @include setFontAttributes;
 
+  h2 {
+    $color: get-color(dark2);
+
+    text-shadow: 5px 5px $color;
+  }
+
   margin: 1em;
   align-items: flex-start;
   align-self: baseline;
@@ -15,6 +21,9 @@
     align-items: stretch;
 
     input {
+      @include setColors(get-color(light2), get-color(dark2));
+      @include setFontAttributes;
+
       margin: 1em 0;
       padding: 1em;
     }

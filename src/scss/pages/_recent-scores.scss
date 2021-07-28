@@ -1,4 +1,4 @@
-@use '../utils/' as *;
+@use '../utils/'as *;
 
 .recent-scores {
   @include flexCenter;
@@ -9,5 +9,11 @@
     @include flexCenter(row);
 
     gap: 1em;
+
+    h2 {
+      $color: get-color(dark2);
+
+      text-shadow: 5px 5px $color;
+    }
   }
 }

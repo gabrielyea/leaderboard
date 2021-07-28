@@ -3,6 +3,7 @@
 .my-btn {
   @include setColors(get-color(light2), get-color(dark2));
   @include setFontAttributes;
+  $color: get-color(light1) solid;
 
-  border: get-color(light1) solid;
+  border: $color;
 }
