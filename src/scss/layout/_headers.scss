@@ -11,7 +11,7 @@ header {
     $color: get-color(dark2);
     $value: text;
 
-    background-image: linear-gradient(92deg, #f35626, #feab3a);
+    // background-image: linear-gradient(92deg, #f35626, #feab3a);
     background-clip: $value;
     grid-column: 1 / span 2;
     text-shadow: 5px 5px $color;
