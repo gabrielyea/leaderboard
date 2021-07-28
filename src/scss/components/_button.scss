@@ -1,5 +1,8 @@
 @use '../utils/' as *;
 
-button {
-  @include setColors(get-color(light1), get-color(dark1));
+.my-btn {
+  @include setColors(get-color(light2), get-color(dark2));
+  @include setFontAttributes;
+
+  border: get-color(light1) solid;
 }

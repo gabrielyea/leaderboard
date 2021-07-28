@@ -4,10 +4,11 @@ table {
   @include flexCenter;
   $color: get-color(light1);
 
+  overflow-y: auto;
   margin-top: 2em;
   justify-content: flex-start;
   border-collapse: collapse;
-  height: 300px;
+  height: 500px;
   border: 1px solid $color;
   border-radius: 8px;
 }
@@ -21,5 +22,5 @@ th {
 }
 
 tr:nth-child(even) {
-  @include setColors(get-color(light1), get-color(dark1));
+  @include setColors(get-color(light2), get-color(dark2));
 }
