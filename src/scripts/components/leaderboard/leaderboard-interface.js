@@ -5,15 +5,17 @@ const utils = new LeaderboardUtils();
 class LeaderboardInterface {
   form = document.querySelector('form');
 
-  refresh = document.querySelector('.refresh-btn');
-
   tableEntry = document.querySelector('template');
 
   scoreTable = document.querySelector('table');
 
   submitBtn = document.querySelector('.submit-btn');
 
+  refreshBtn = document.querySelector('.refresh-btn');
+
   addScoreHeader = document.querySelector('.add-scores-h2')
+
+  recentScoreHeader = document.querySelector('.recent-scores-h2');
 
   constructor() {
     this.form.addEventListener('submit', (e) => {
@@ -23,7 +25,7 @@ class LeaderboardInterface {
       utils.setScores({ user: name.value, score: score.value });
     });
 
-    this.refresh.addEventListener('click', () => {
+    this.refreshBtn.addEventListener('click', () => {
       leaderboardActions.onRefreshRequested.doActions({});
     });
   }
@@ -47,9 +49,10 @@ class LeaderboardInterface {
     }
   }
 
-  toggleDisabled = (message) => {
-    this.submitBtn.value = message;
-    this.submitBtn.disabled = !this.submitBtn.disabled;
+  toggleDisabled = (message, element) => {
+    element.value = message;
+    element.innerText = message;
+    element.disabled = !element.disabled;
   }
 
   cleanInputs = () => {
@@ -59,8 +62,8 @@ class LeaderboardInterface {
     score.value = '';
   }
 
-  toggleLoadingAnimation = (element) => {
-    element.classList.toggle('loading');
+  toggleAnimation = (animationName, element) => {
+    element.classList.toggle(animationName);
   }
 }
 
