@@ -70,9 +70,11 @@
       input {
         @include setFontAttributes(2em);
 
+        $color: get-color(light1);
+
         margin: 1em 0;
-        padding: em;
-        border: solid 4px;
+        padding: 1em;
+        border: solid 4px $color;
         border-radius: 8px;
       }
 

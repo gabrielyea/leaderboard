@@ -9,6 +9,13 @@
   padding: 0.5em;
   border: $color;
   border-radius: 4px;
+
+  &:hover {
+    animation: hue 1s infinite alternate, pulse 1s infinite alternate;
+  }
+
+  @include randomColorRotation(hue);
+  @include scaleChangeAnimation(pulse, 1, 1.2);
 }
 
 @include media(">tablet") {
