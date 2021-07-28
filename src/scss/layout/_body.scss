@@ -12,6 +12,11 @@ body {
   background-size: cover;
 }
 
-// @include media(">tablet") {
-
-// }
+@include media(">tablet") {
+  body {
+    background-image: url('../assets/mobile-background.png');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+  }
+}

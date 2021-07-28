@@ -40,6 +40,10 @@
       -webkit-appearance: none;
     }
 
+    input::placeholder {
+      color: white;
+    }
+
     .submit-btn {
       align-self: flex-end;
     }
@@ -67,7 +71,7 @@
         @include setFontAttributes(2em);
 
         margin: 1em 0;
-        padding: 1em;
+        padding: em;
         border: solid 4px;
         border-radius: 8px;
       }
