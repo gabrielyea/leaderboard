@@ -2,27 +2,34 @@
 @use '../vendors/include-media'as *;
 
 header {
-  @include setFontAttributes(2em);
   @include flexCenter;
 
-  margin-top: 2em;
+  margin-top: 1em;
 
-  @include media(">tablet") {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+  h1 {
+    @include setFontAttributes(2em);
+    $color: get-color(dark2);
+    $value: text;
+
+    background-image: linear-gradient(92deg, #f35626, #feab3a);
+    background-clip: $value;
+    grid-column: 1 / span 2;
+    text-shadow: 5px 5px $color;
+    animation: hue infinite 1s;
+  }
+
+  @include randomColorRotation(hue);
+}
+
+@include media(">tablet") {
+  header {
+    margin-top: 4em;
 
     h1 {
-      $color: get-color(dark2);
-      $value: text;
-
-      background-image: linear-gradient(92deg, #f35626, #feab3a);
-      background-clip: $value;
-      grid-column: 1 / span 2;
-      margin: 1em 0;
-      text-shadow: 5px 5px $color;
-      animation: hue infinite 1s;
+      @include setFontAttributes(5em);
     }
 
-    @include randomColorRotation(hue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
