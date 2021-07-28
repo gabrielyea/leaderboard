@@ -1,13 +1,25 @@
 import leaderboardActions from './leaderboard-actions.js';
 import LeaderboardUtils from './leaderboard-utils.js';
 import ApiAccess from '../api/api-access.js';
+import display from './leaderboard-interface.js';
 
 const utils = new LeaderboardUtils();
 const apiCalls = new ApiAccess();
 
 const registerActions = () => {
-  leaderboardActions.onScoreSubmited.addActions(utils.setScore);
-  leaderboardActions.onRefreshRequested.addActions(utils.getScore);
+  leaderboardActions.onScoreSubmited.addActions(() => display.toggleDisabled('Uploading...'));
+
+  leaderboardActions.onScoreSucces.addActions(
+    display.clearTable,
+    display.cleanInputs,
+    () => display.toggleDisabled('Submit your score'),
+    () => utils.displayScore(display),
+  );
+
+  leaderboardActions.onRefreshRequested.addActions(display.clearTable,
+    () => utils.displayScore(display));
+
+  leaderboardActions.onRefreshSuccess.addActions();
 };
 
 const setNewGame = () => {

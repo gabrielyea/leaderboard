@@ -1,5 +1,7 @@
 import leaderboardActions from './leaderboard-actions.js';
+import LeaderboardUtils from './leaderboard-utils.js';
 
+const utils = new LeaderboardUtils();
 class LeaderboardInterface {
   form = document.querySelector('form');
 
@@ -14,11 +16,9 @@ class LeaderboardInterface {
   constructor() {
     this.form.addEventListener('submit', (e) => {
       e.preventDefault();
-      this.toggleDisabled('Sending...');
       const name = this.form.querySelector('.player-name');
       const score = this.form.querySelector('.player-score');
-      leaderboardActions.onScoreSubmited
-        .doActions({ param: { user: name.value, score: score.value } });
+      utils.setScores({ user: name.value, score: score.value });
     });
 
     this.refresh.addEventListener('click', () => {
@@ -26,7 +26,7 @@ class LeaderboardInterface {
     });
   }
 
-  setLeaderboardDisplay = (scores) => {
+  setScoresOnBoard = (scores) => {
     this.clearTable();
     scores.forEach((score) => {
       const row = this.scoreTable.insertRow(1);
@@ -35,7 +35,6 @@ class LeaderboardInterface {
   }
 
   createTableElement = ({ user, score, row }) => {
-    // const clone = this.tableEntry.content.firstElementChild.cloneNode(true);
     row.insertCell(0).innerText = user;
     row.insertCell(1).innerText = score;
   }

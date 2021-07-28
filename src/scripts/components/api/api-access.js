@@ -25,12 +25,12 @@ export default class ApiAccess {
         'Content-type': 'application/json; charset=UTF-8',
       },
     });
-    return response.json();
+    return response;
   }
 
   getScoresFromApi = async () => {
     const response = await fetch(getScoreDirection());
-    return response.json();
+    return response;
   }
 
   setNewDirection = (id) => {

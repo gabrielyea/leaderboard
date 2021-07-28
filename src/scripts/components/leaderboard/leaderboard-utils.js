@@ -1,30 +1,26 @@
-import leaderboardInterface from './leaderboard-interface.js';
 import ApiAccess from '../api/api-access.js';
 import MyList from '../utils/list-utils.js';
+import leaderboardActions from './leaderboard-actions.js';
 
 export default class LeaderboardUtils {
-  setScore = ({ user, score }) => {
-    this.getApiAccess().postScoreToApi({ user, score }).then((score) => {
-      this.onSuccessSubmit({ score });
-    });
+  setScores = async ({ user, score }) => {
+    leaderboardActions.onScoreSubmited.doActions({});
+    const response = await this.getApiAccess().postScoreToApi({ user, score });
+    if (response.ok) {
+      leaderboardActions.onScoreSucces.doActions({});
+    }
   }
 
-  getScore = () => {
-    leaderboardInterface.clearTable();
-    this.getApiAccess().getScoresFromApi()
-      .then((list) => {
-        const sortedList = this.myListFunctions().mySort(list.result);
-        leaderboardInterface.setLeaderboardDisplay(sortedList);
-      });
+  displayScore = async (display) => {
+    const response = await this.getApiAccess().getScoresFromApi();
+    const list = await response.json();
+    if (response.ok) {
+      const sortedList = this.myListFunctions().mySort(list.result);
+      display.setScoresOnBoard(sortedList);
+    }
   }
 
   getApiAccess = () => new ApiAccess();
 
   myListFunctions = () => new MyList();
-
-  onSuccessSubmit = () => {
-    leaderboardInterface.toggleDisabled('Submit your score');
-    leaderboardInterface.cleanInputs();
-    this.getScore();
-  }
 }
