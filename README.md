@@ -20,7 +20,9 @@ You can see my page live here:
 
 ## Getting Started
 To get a local copy running follow this steps!
-- Clone this repo.
+- Press the "Code" button and copy the link.
+- Clone it using git command `git clone <link>`.
+- Go to the directory `cd <repo-name>
 - `npm install` to install the packages
 - `npm run start` to build dist files and run local server.
 
