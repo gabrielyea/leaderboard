@@ -4,7 +4,7 @@ import LeaderboardUtils from '../leaderboard-utils.js';
 
 jest.mock('../../api/api-access.js');
 
-describe('Local storage mock operations', () => {
+describe('Api access mock operations', () => {
   beforeAll(() => {
     ApiAccess.mockImplementation(() => ({
       getScoresFromApi() {
