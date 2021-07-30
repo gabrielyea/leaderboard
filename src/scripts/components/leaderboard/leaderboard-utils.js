@@ -1,18 +1,17 @@
-import ApiAccess from '../api/api-access.js';
 import MyList from '../utils/list-utils.js';
 import actions from './leaderboard-actions.js';
 
 export default class LeaderboardUtils {
-  setScores = async ({ user, score }) => {
+  setScores = async ({ user, score, api }) => {
     actions.onScoreSubmited.doActions({});
-    const response = await this.getApiAccess().postScoreToApi({ user, score });
+    const response = await api.postScoreToApi({ user, score });
     if (response.ok) {
       actions.onScoreSucces.doActions({});
     }
   }
 
-  displayScore = async (display) => {
-    const response = await this.getApiAccess().getScoresFromApi();
+  displayScore = async ({ display, api }) => {
+    const response = await this.getScores(api);
     const list = await response.json();
     if (response.ok) {
       const sortedList = this.myListFunctions().mySort(list.result);
@@ -21,7 +20,10 @@ export default class LeaderboardUtils {
     }
   }
 
-  getApiAccess = () => new ApiAccess();
+  getScores = async (api) => {
+    const response = await api.getScoresFromApi();
+    return response;
+  }
 
   myListFunctions = () => new MyList();
 }

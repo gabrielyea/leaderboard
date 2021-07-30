@@ -1,7 +1,3 @@
-import leaderboardActions from './leaderboard-actions.js';
-import LeaderboardUtils from './leaderboard-utils.js';
-
-const utils = new LeaderboardUtils();
 class LeaderboardInterface {
   form = document.querySelector('form');
 
@@ -16,19 +12,6 @@ class LeaderboardInterface {
   addScoreHeader = document.querySelector('.add-scores-h2')
 
   recentScoreHeader = document.querySelector('.recent-scores-h2');
-
-  constructor() {
-    this.form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = this.form.querySelector('.player-name');
-      const score = this.form.querySelector('.player-score');
-      utils.setScores({ user: name.value, score: score.value });
-    });
-
-    this.refreshBtn.addEventListener('click', () => {
-      leaderboardActions.onRefreshRequested.doActions({});
-    });
-  }
 
   setScoresOnBoard = (scores) => {
     this.clearTable();

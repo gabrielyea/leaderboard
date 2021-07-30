@@ -25,7 +25,7 @@ const registerActions = () => {
     () => display.toggleDisabled('Looking...', display.refreshBtn),
     () => display.toggleAnimation('loading', display.recentScoreHeader),
     () => display.toggleAnimation('show', display.scoreTable),
-    () => utils.displayScore(display),
+    () => utils.displayScore({ display, api: apiCalls }),
   );
 
   actions.onRefreshSuccess.addActions(
@@ -47,8 +47,22 @@ const setNewGame = () => {
   }
 };
 
+const registerEvents = () => {
+  display.form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = display.form.querySelector('.player-name');
+    const score = display.form.querySelector('.player-score');
+    utils.setScores({ user: name.value, score: score.value, api: apiCalls });
+  });
+
+  display.refreshBtn.addEventListener('click', () => {
+    actions.onRefreshRequested.doActions({});
+  });
+};
+
 const setUp = () => {
   registerActions();
+  registerEvents();
   setNewGame();
 };
 
