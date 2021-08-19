@@ -25,7 +25,7 @@ const registerActions = () => {
     () => display.toggleDisabled('Looking...', display.refreshBtn),
     () => display.toggleAnimation('loading', display.recentScoreHeader),
     () => display.toggleAnimation('show', display.scoreTable),
-    () => utils.displayScore({ display, api: apiCalls }),
+    () => utils.displayUnicorns({ display, api: apiCalls }),
   );
 
   actions.onRefreshSuccess.addActions(

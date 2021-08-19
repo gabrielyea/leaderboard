@@ -21,6 +21,15 @@ class LeaderboardInterface {
     });
   }
 
+  setUnicornsOnBoard = (scores) => {
+    this.clearTable();
+    scores.forEach((score) => {
+      const row = this.scoreTable.insertRow(1);
+      // eslint-disable-next-line no-underscore-dangle
+      this.createTableElement({ user: score._id, score: score.age, row });
+    });
+  }
+
   createTableElement = ({ user, score, row }) => {
     row.insertCell(0).innerText = user;
     row.insertCell(1).innerText = score;
